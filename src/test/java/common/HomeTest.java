@@ -11,7 +11,7 @@ public class HomeTest  extends BaseTest{
 public void ValidateHomePage() {
 	// validate title 
 	String titleOfHomePage="The Internet";
-	Assert.assertEquals(new HomePage().getTtile(), titleOfHomePage);
+	Assert.assertEquals(new HomePage(super.driver).getTtile(), titleOfHomePage);
 			
 }
 	
