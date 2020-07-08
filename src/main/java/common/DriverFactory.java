@@ -14,8 +14,8 @@ public WebDriver getDriver(String browsername) {
 		
 		System.setProperty("webdriver.chrome.driver","chromedriver");
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--headless");
-		driver=new ChromeDriver(chromeOptions);
+		//chromeOptions.addArguments("--headless");
+		driver=new ChromeDriver();
 	}
 	else {
 		

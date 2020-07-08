@@ -4,12 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 public class BasePage {
 
-	protected static WebDriver driver;
+	protected WebDriver driver;
 	
-	BasePage(){
-		DriverFactory factory= new DriverFactory();
-		driver=factory.getDriver("chrome");
-		
+	public BasePage(WebDriver driver){
+		this.driver=driver;
 	}
 	
 	public void openUrl(String url) {

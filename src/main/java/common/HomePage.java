@@ -1,13 +1,19 @@
 package common;
 
+import org.openqa.selenium.WebDriver;
+
 public class HomePage  extends BasePage{
+	
+	public HomePage(WebDriver driver){
+		
+		super(driver);
+	}
 	
 	
 	public String getTtile()  {
 		
 		try {
-			Thread.sleep(5000);
-			System.out.println("Title of the page is "+driver.getTitle());
+			System.out.println("Title of the page is "+driver.getCurrentUrl());
 			return driver.getTitle();
 			
 		}
