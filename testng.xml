@@ -4,6 +4,9 @@
   <test name="Test">
   <classes>
   <class name="common.HomeTest"/>
+  <class name="common.HomeTest"/>
+  <class name="common.HomeTest"/>
+  <class name="common.HomeTest"/>
   </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
