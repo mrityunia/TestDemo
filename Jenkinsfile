@@ -11,25 +11,27 @@ tools{
 maven 'maven 3.6.3'
 
 }
-   when{
+   
+   stages {
+        stage('Clean') {
+           when{
       expression{
       CODE_CHANGES==true
       }
    }
-   stages {
-        stage('Clean') {
          steps {
             echo 'Hello Clean'
             echo 'Code is changed'
             echo "ORG name os ${params.ORGNAME}"
          }
       }
-      when{
+      
+      stage('Code Not changes'){
+         when{
          expression{
         CODE_CHANGES!=true
          }
       }
-      stage('Code Not changes'){
          steps{
          echo 'Code does not changed'
          }
