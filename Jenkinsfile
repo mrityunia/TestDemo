@@ -7,6 +7,7 @@ def checkFolderForDiffs() {
         echo 'FAlSE Return'
         return false
     } catch (err) {
+        echo 'True Return'
         return true
     }
 }
