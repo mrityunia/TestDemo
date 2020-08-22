@@ -1,6 +1,6 @@
 //http://localhost:8080/env-vars.html/ to get env variable
 
-CODE_CHANGES=gitCodeChanges()
+CODE_CHANGES=getGitChanges()
 pipeline {
    agent any
 parameters{
