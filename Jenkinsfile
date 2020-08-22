@@ -1,5 +1,6 @@
 //http://localhost:8080/env-vars.html/ to get env variable
 
+CODE_CHANGES=gitCodeChanges()
 pipeline {
    agent any
 parameters{
@@ -10,13 +11,30 @@ tools{
 maven 'maven 3.6.3'
 
 }
+   when{
+      expression{
+      CODE_CHANGES==true
+      }
+   }
    stages {
         stage('Clean') {
          steps {
             echo 'Hello Clean'
+            echo 'Code is changed'
             echo "ORG name os ${params.ORGNAME}"
          }
       }
+      when{
+         expression{
+        CODE_CHANGES!=true
+         }
+      }
+      stage('Code Not changes'){
+         steps{
+         echo 'Code does not changed'
+         }
+      }
+      
       stage('Build') {
       when{
       expression{
@@ -33,7 +51,7 @@ maven 'maven 3.6.3'
          steps {
             echo 'Hello Deploy'
             echo "ORG name os ${params.Version}"
-            sh "mvn version"
+            sh "mvn -version"
          }
       }
    }
