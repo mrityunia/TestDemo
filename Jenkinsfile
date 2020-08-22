@@ -1,6 +1,16 @@
 //http://localhost:8080/env-vars.html/ to get env variable
+def checkFolderForDiffs() {
+    try {
+        // git diff will return 1 for changes (failure) which is caught in catch, or
+        // 0 meaning no changes 
+        sh "git diff --quiet --exit-code HEAD~1..HEAD ${path}"
+        return false
+    } catch (err) {
+        return true
+    }
+}
 
-CODE_CHANGES=true
+CODE_CHANGES=checkFolderForDiffs()
 pipeline {
    agent any
 parameters{
