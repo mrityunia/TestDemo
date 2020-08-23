@@ -5,7 +5,7 @@ CODE_CHANGES=true
 pipeline {
    agent any
      triggers {
-        cron('H */2 * * 1-3')
+        cron('* * * * *')
      }
 parameters{
     string(name: 'ORGNAME', defaultValue: 'Testing',description: 'this to select Org Details')
