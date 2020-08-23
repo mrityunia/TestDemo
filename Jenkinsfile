@@ -73,7 +73,7 @@ maven 'maven 3.6.3'
    
    }
    failure{
-   echo 'Execute only when builds fail'
+   echo 'Execute only when builds fail.'
    
    }
    }
