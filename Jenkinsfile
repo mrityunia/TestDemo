@@ -4,9 +4,7 @@
 CODE_CHANGES=true
 pipeline {
    agent any
-     triggers {
-        cron('* * * * *')
-     }
+     
 parameters{
     string(name: 'ORGNAME', defaultValue: 'Testing',description: 'this to select Org Details')
     choice(name : 'Version', choices:['1.12.0', '1.12.2', '1.12.3'],description: 'This is to select the choice value')
