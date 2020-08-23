@@ -1,20 +1,11 @@
 //http://localhost:8080/env-vars.html/ to get env variable
-def checkFolderForDiffs() {
-    try {
-        // git diff will return 1 for changes (failure) which is caught in catch, or
-        // 0 meaning no changes 
-        sh "git diff --quiet --exit-code HEAD~1..HEAD"
-        echo 'FAlSE Return'
-        return false
-    } catch (err) {
-        echo 'True Return'
-        return true
-    }
-}
 
-CODE_CHANGES=checkFolderForDiffs()
+
+CODE_CHANGES=true
 pipeline {
    agent any
+     triggers {
+    cron('H */2 * * 1-3')
 parameters{
     string(name: 'ORGNAME', defaultValue: 'Testing',description: 'this to select Org Details')
     choice(name : 'Version', choices:['1.12.0', '1.12.2', '1.12.3'],description: 'This is to select the choice value')
