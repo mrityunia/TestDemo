@@ -21,6 +21,7 @@ maven 'maven 3.6.3'
            when{
       expression{
       CODE_CHANGES==true
+         echo 'Chnages happened'
       }
    }
          steps {
