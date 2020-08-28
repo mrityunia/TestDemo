@@ -1,7 +1,5 @@
 //http://localhost:8080/env-vars.html/ to get env variable
 
-
-CODE_CHANGES=true
 pipeline {
    agent any
      
@@ -9,6 +7,9 @@ parameters{
     string(name: 'ORGNAME', defaultValue: 'Testing',description: 'this to select Org Details')
     choice(name : 'Version', choices:['1.12.0', '1.12.2', '1.12.3'],description: 'This is to select the choice value')
 }
+   environment {
+   CODE_CHANGES=true
+   }
 tools{
 maven 'maven 3.6.3'
 
@@ -58,6 +59,19 @@ maven 'maven 3.6.3'
             echo "ORG name os ${params.Version}"
             sh "mvn -version"
          }
+      }
+   }
+   stage('parallel steps'){
+      steps{
+         parallel(
+            a:{
+            echo 'Parallel steps a'
+            },
+            b:{
+            echo 'parallel steps b'
+            }
+         
+         )
       }
    }
    post{
