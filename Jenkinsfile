@@ -76,9 +76,7 @@ maven 'maven 3.6.3'
       stage('parallel stages'){
          parallel{
             stage('Test On Windows') {
-                    agent {
-                        echo 'agent Test On Windows'
-                    }
+                    agent any
                     steps {
                         echo 'step Test On Windows'
                     }
@@ -89,9 +87,7 @@ maven 'maven 3.6.3'
                     }
                 }
                 stage('Test On Linux') {
-                    agent {
-                        echo 'agent Test On Linux'
-                    }
+                    agent any
                     steps {
                         echo 'step Test On Windows'
                     }
