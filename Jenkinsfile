@@ -60,8 +60,7 @@ maven 'maven 3.6.3'
             sh "mvn -version"
          }
       }
-   }
-   stage('parallel steps'){
+      stage('parallel steps'){
       steps{
          parallel(
             a:{
@@ -74,6 +73,8 @@ maven 'maven 3.6.3'
          )
       }
    }
+   }
+   
    post{
    always{
    echo 'Always Excute erespective of failure startus'
