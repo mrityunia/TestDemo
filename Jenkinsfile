@@ -77,10 +77,10 @@ maven 'maven 3.6.3'
          parallel{
             stage('Test On Windows') {
                     agent {
-                        label "windows"
+                        echo 'agent Test On Windows'
                     }
                     steps {
-                        bat "run-tests.bat"
+                        echo 'step Test On Windows'
                     }
                     post {
                         always {
@@ -90,10 +90,10 @@ maven 'maven 3.6.3'
                 }
                 stage('Test On Linux') {
                     agent {
-                        label "linux"
+                        echo 'agent Test On Linux'
                     }
                     steps {
-                        sh "run-tests.sh"
+                        echo 'step Test On Windows'
                     }
                     post {
                         always {
