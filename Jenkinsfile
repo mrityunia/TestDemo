@@ -73,6 +73,37 @@ maven 'maven 3.6.3'
          )
       }
    }
+      stage('parallel stages'){
+         parallel{
+            stage('Test On Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        bat "run-tests.bat"
+                    }
+                    post {
+                        always {
+                             echo 'Test On windows post'
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    agent {
+                        label "linux"
+                    }
+                    steps {
+                        sh "run-tests.sh"
+                    }
+                    post {
+                        always {
+                           echo 'Test On Linux post'
+                        }
+                    }
+                }
+         }
+      
+      }
    }
    
    post{
