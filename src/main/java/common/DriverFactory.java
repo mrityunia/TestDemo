@@ -22,18 +22,19 @@ public WebDriver getDriver(String browsername) {
 		//ChromeOptions chromeOptions = new ChromeOptions();
 		//chromeOptions.addArguments("--headless");
 		
-		URL url;
-		try {
-			url = new URL("http://localhost:4444/wd/hub");
-			DesiredCapabilities capbility = DesiredCapabilities.chrome();
-			driver= new RemoteWebDriver(url,capbility);
-			
-			driver=new ChromeDriver();
-			
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//URL url;
+//		try {
+//			url = new URL("http://localhost:4444/wd/hub");
+//			DesiredCapabilities capbility = DesiredCapabilities.chrome();
+//			driver= new RemoteWebDriver(url,capbility);
+//			
+//			//driver=new ChromeDriver();
+//			
+//		} catch (MalformedURLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		driver=new ChromeDriver();
 		
 	}
 	else {
