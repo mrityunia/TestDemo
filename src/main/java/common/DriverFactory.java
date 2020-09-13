@@ -14,7 +14,7 @@ public class DriverFactory {
 	
 public WebDriver getDriver(String browsername) {
 	//WebDriver driver;
-	RemoteWebDriver driver=null;
+	WebDriver driver=null;
 	
 	if("chrome".equalsIgnoreCase(browsername)) {
 		
